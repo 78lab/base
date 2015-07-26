@@ -128,8 +128,8 @@ end
 
 group :development, :test do
   # gem 'sqlite3'
-  gem 'spring'
-  gem 'spring-commands-rspec'
+  # gem 'spring'
+  # gem 'spring-commands-rspec'
   #gem 'rspec-rails', '~> 3.0'
   gem 'rspec-rails'
   gem 'guard-rspec'

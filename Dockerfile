@@ -26,10 +26,10 @@ ADD nginx_gzip.conf /etc/nginx/conf.d/nginx_gzip.conf
 WORKDIR /tmp 
 ADD ./my_app/Gemfile /tmp/ 
 ADD ./my_app/Gemfile.lock /tmp/ 
-RUN bundle install  --without development test
+RUN bundle install
 
 ADD ./foobar/Gemfile /tmp/ 
 ADD ./foobar/Gemfile.lock /tmp/ 
-RUN bundle install  --without development test
+RUN bundle install
 
 
