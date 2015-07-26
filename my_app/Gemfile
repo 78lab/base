@@ -63,10 +63,11 @@ gem 'cancancan', '~> 1.10'
 #gem 'simple_form', '3.0.2'
 gem 'simple_form', '~> 3.1.0'
 
-gem 'friendly_id', '~> 5.0.0'
+gem 'friendly_id', '~> 5.1.0'
 
 gem 'fog', '~> 1.29.0'    #, require: "fog/aws/storage"
 gem 'carrierwave', require: true
+gem 'carrierwave-ftp', :require => 'carrierwave/storage/sftp' # SFTP only
 gem 'mini_magick'
 gem 'acts-as-taggable-on', '~> 3.4'
 
@@ -162,7 +163,7 @@ gem 'recommendable'
 gem 'hooks'
 gem 'pluck_to_hash'
 
-# gem 'newrelic_rpm'
+gem 'newrelic_rpm'
 
 gem 'faraday_middleware'
 

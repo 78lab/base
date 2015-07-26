@@ -6,21 +6,35 @@ FROM phusion/passenger-ruby22
 
 MAINTAINER djlee "djlee@78lab.com"
 
+# Set the timezone.
+RUN sudo echo "Asia/Seoul" > /etc/timezone
+RUN sudo dpkg-reconfigure -f noninteractive tzdata
+
+
 # Set correct environment variables.
 ENV HOME /root
 
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
 
+
+# Add nginx conf
+ADD nginx_gzip.conf /etc/nginx/conf.d/nginx_gzip.conf
+
+# Add SSL
+RUN mkdir -p /etc/nginx/ssl
+ADD ./ssl/* /etc/nginx/ssl/
+
+
 # === 5 === 
 # Run Bundle in a cache efficient way 
 WORKDIR /tmp 
 ADD ./my_app/Gemfile /tmp/ 
 ADD ./my_app/Gemfile.lock /tmp/ 
-RUN bundle install
+RUN bundle install  --without development test
 
 ADD ./foobar/Gemfile /tmp/ 
 ADD ./foobar/Gemfile.lock /tmp/ 
-RUN bundle install
+RUN bundle install  --without development test
 
 
