@@ -21,11 +21,6 @@ CMD ["/sbin/my_init"]
 # Add nginx conf
 ADD nginx_gzip.conf /etc/nginx/conf.d/nginx_gzip.conf
 
-# Add SSL
-RUN mkdir -p /etc/nginx/ssl
-ADD ./ssl/* /etc/nginx/ssl/
-
-
 # === 5 === 
 # Run Bundle in a cache efficient way 
 WORKDIR /tmp 
